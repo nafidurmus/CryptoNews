@@ -1,12 +1,18 @@
-<h1> Index Page</h1>
-<br/><br/>
+<div class="container">
+	<div class="row">
+		<% for x in @news["Data"]  %>
+			<div class="col-sm">
+				<div class="card" style="width: 18rem;">
+					<img class="card-img-top" src="<%= x["imageurl"] %>" alt="<%= x["source"] %>">
+					<div class="card-body">
+					    <h5 class="card-title"><%= x["title"]  %></h5>
+					    <p class="card-text"><%= x["body"]  %></p>
+					    <a href="<%= x["url"]  %>" class="btn btn-secondary">Read More</a>
+					</div>
+				</div>
+			<br/>
+			</div>
 
-<% @news["Data"] %>
-<ul>
-<% for x in @news["Data"]  %>
-	<img src="<%= x["imageurl"] %>"> <br/>
-	<strong><%= x["title"]  %></strong><br/>
-	<%= x["body"]  %><br/><br/>
-	<a href="<%= x["url"]  %>"> Read More </a><br/><hr><br/>
-<% end %>
-</ul>
+		<% end %>
+	</div>
+</div>
