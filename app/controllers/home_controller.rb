@@ -19,6 +19,8 @@ class HomeController < ApplicationController
 	end
 
 	def prices
+		@symbol = params[:sym]
+		@symbol = @symbol.upcase
 	end
 
 
