@@ -1,3 +1,16 @@
 <h1>Prices Page</h1>
 
-<%= @symbol %>
+<br/>
+
+<% @quate["DISPLAY"] %>
+
+<% @quate["DISPLAY"].each do |key, value|  %>
+
+	<div class="jumbotron">
+		<h1 class="display-4"><%= key %>  </h1>
+		Price : <%= value["TRY"]["PRICE"]  %> <br/>
+		24hr High: <%= value["TRY"]["HIGHDAY"] %> <br/>
+		24hr Low. <%= value["TRY"]["LOWDAY"] %> <br/>
+		MarketCap: <%= value["TRY"]["MKTCAP"] %> <br/>
+	</div>	
+<% end %>
