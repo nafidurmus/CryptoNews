@@ -1,16 +1,17 @@
-<h1>Prices Page</h1>
-
-<br/>
-
-<% @quate["DISPLAY"] %>
-
-<% @quate["DISPLAY"].each do |key, value|  %>
-
-	<div class="jumbotron">
-		<h1 class="display-4"><%= key %>  </h1>
-		Price : <%= value["TRY"]["PRICE"]  %> <br/>
-		24hr High: <%= value["TRY"]["HIGHDAY"] %> <br/>
-		24hr Low. <%= value["TRY"]["LOWDAY"] %> <br/>
-		MarketCap: <%= value["TRY"]["MKTCAP"] %> <br/>
-	</div>	
+<% if @symbol %>
+	<% if @quate["Response"] %>
+		<h4>The Symbol <%= @symbol %> Doesn't Exist. Please Try Again...</h4>
+	<% else %>
+		<% @quate["DISPLAY"].each do |key, value|  %>
+			<div class="jumbotron">
+				<h1 class="display-4"><%= key %>  </h1>
+				Price : <%= value["TRY"]["PRICE"]  %> <br/>
+				24hr High: <%= value["TRY"]["HIGHDAY"] %> <br/>
+				24hr Low. <%= value["TRY"]["LOWDAY"] %> <br/>
+				MarketCap: <%= value["TRY"]["MKTCAP"] %> <br/>
+			</div>	
+		<% end %>
+	<% end %>
+<% else %>
+	<h4>Plese enter a crypto symbol in the form above...</h4>
 <% end %>

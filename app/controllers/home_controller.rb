@@ -23,13 +23,15 @@ class HomeController < ApplicationController
 		require 'json'
 
 		@symbol = params[:sym]
-		@symbol = @symbol.upcase
 
-		#Grab Price Data
-		@quate_url = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + @symbol + '&tsyms=USD,TRY'
-		@quate_uri = URI(@quate_url)
-		@quate_response = Net::HTTP.get(@quate_uri)
-		@quate = JSON.parse(@quate_response)
+		if @symbol
+			@symbol = @symbol.upcase
+			#Grab Price Data
+			@quate_url = 'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + @symbol + '&tsyms=USD,TRY'
+			@quate_uri = URI(@quate_url)
+			@quate_response = Net::HTTP.get(@quate_uri)
+			@quate = JSON.parse(@quate_response)
+		end
 		
 	end
 
